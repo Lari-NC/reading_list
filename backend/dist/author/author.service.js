@@ -34,5 +34,4 @@ exports.AuthorService = AuthorService = __decorate([
     __param(0, (0, common_1.Inject)('AUTHOR_REPOSITORY')),
     __metadata("design:paramtypes", [typeorm_1.Repository])
 ], AuthorService);
-exports.default = AuthorService;
 //# sourceMappingURL=author.service.js.map

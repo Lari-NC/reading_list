@@ -1,4 +1,4 @@
-import Author from 'src/author/author.entity';
+import Author from 'src/author/entities/author.entity';
 
 export interface Book {
   title: string;

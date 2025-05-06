@@ -55,6 +55,20 @@ let BookService = class BookService {
             };
         });
     }
+    async findById(id) {
+        const book = await this.bookRepository.findOne({ where: { id } });
+        if (!book) {
+            throw new common_1.NotFoundException(`Libro con id ${id} no encontrado`);
+        }
+        return book;
+    }
+    async updateFavorite(id, isFavorite) {
+        const book = await this.bookRepository.findOneBy({ id });
+        if (!book)
+            throw new common_1.NotFoundException();
+        book.isFavorite = isFavorite;
+        return this.bookRepository.save(book);
+    }
 };
 exports.BookService = BookService;
 exports.BookService = BookService = __decorate([

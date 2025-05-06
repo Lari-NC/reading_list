@@ -1,7 +1,8 @@
-import { Column, Entity, ManyToMany, PrimaryGeneratedColumn } from 'typeorm';
-import Book from '../book/book.entity';
+import { Column, Entity, ManyToMany, PrimaryGeneratedColumn, Unique } from 'typeorm';
+import Book from '../../book/entities/book.entity';
 
 @Entity()
+@Unique(['name'])
 export class Author {
   @PrimaryGeneratedColumn()
   id: number;

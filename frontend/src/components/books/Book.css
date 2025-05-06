@@ -1,0 +1,66 @@
+.book {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center; 
+    width: 300px;
+    height: 434.16px;
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    gap: 16px;
+    padding: 24px 0px 24px 0px;
+    position: relative;
+    box-shadow: 0px 0px 4px  #00000026;
+}
+
+.book .FavButton {
+    position: absolute;
+    top: 8px;  
+    right: 8px; 
+}
+
+.book-top {
+    width: 300px;
+    height: 264.16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center; 
+    margin-bottom: 1px;
+}
+
+.book-bottom {
+    width: 300px;
+    height: 122px;
+    padding: 0px 16px 0px 16px;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.book .horizontal-line {
+    padding-top: 1px;
+    width: 300px;
+    max-width: 300px;
+    height: 1px;
+    max-height: 1px;
+    background-color: #00000040;
+}
+
+.book-genre {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 18px;
+    text-align: left;
+    color: #27c0c2;
+}
+
+.book .book-top img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 8px;
+    display: block;
+}

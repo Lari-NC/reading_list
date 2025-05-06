@@ -1,8 +1,9 @@
-import Author from 'src/author/author.entity';
+import Author from 'src/author/entities/author.entity';
+import { Genre } from '../../common/enums/genre.enum';
 export declare class CreateBookDto {
     title: string;
     pages: number;
-    genre: string;
+    genre: Genre;
     cover: string;
     synopsis: string;
     year: number;

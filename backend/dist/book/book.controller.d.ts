@@ -1,9 +1,12 @@
 import { BookService } from './book.service';
-import { Book } from './interfaces/book.interface';
 import { CreateBookDto } from './dto/create-book.dto';
+import Book from './entities/book.entity';
 export declare class BookController {
     private bookService;
     constructor(bookService: BookService);
     create(createBookDto: CreateBookDto): Promise<void>;
-    findAll(title?: string, author?: string, genre?: string): Promise<Book[]>;
+    findAll(title?: string, author?: string, genre?: string): Promise<any[]>;
+    findById(id?: number): Promise<Book>;
+    getGenres(): string[];
+    updateFavorite(id: number, isFavorite: boolean): Promise<Book>;
 }

@@ -4,7 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.authorProviders = void 0;
-const author_entity_1 = __importDefault(require("./author.entity"));
+const author_entity_1 = __importDefault(require("./entities/author.entity"));
 exports.authorProviders = [
     {
         provide: 'AUTHOR_REPOSITORY',

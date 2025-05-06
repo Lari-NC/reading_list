@@ -1,4 +1,4 @@
-import Author from './author.entity';
+import Author from './entities/author.entity';
 import { Repository } from 'typeorm';
 import { CreateAuthorDto } from './dto/create-author.dto';
 export declare class AuthorService {
@@ -7,4 +7,3 @@ export declare class AuthorService {
     createAuthor(createAuthorDto: CreateAuthorDto): Promise<void>;
     findAll(): Promise<Author[]>;
 }
-export default AuthorService;

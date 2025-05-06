@@ -14,7 +14,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Book = void 0;
 const typeorm_1 = require("typeorm");
-const author_entity_1 = __importDefault(require("../author/author.entity"));
+const author_entity_1 = __importDefault(require("../../author/entities/author.entity"));
 let Book = class Book {
     id;
     title;
@@ -25,6 +25,7 @@ let Book = class Book {
     year;
     isbn;
     authors;
+    isFavorite;
 };
 exports.Book = Book;
 __decorate([
@@ -39,10 +40,6 @@ __decorate([
     (0, typeorm_1.Column)(),
     __metadata("design:type", Number)
 ], Book.prototype, "pages", void 0);
-__decorate([
-    (0, typeorm_1.Column)(),
-    __metadata("design:type", String)
-], Book.prototype, "genre", void 0);
 __decorate([
     (0, typeorm_1.Column)(),
     __metadata("design:type", String)
@@ -66,6 +63,10 @@ __decorate([
     (0, typeorm_1.JoinTable)(),
     __metadata("design:type", Array)
 ], Book.prototype, "authors", void 0);
+__decorate([
+    (0, typeorm_1.Column)({ default: false }),
+    __metadata("design:type", Boolean)
+], Book.prototype, "isFavorite", void 0);
 exports.Book = Book = __decorate([
     (0, typeorm_1.Entity)(),
     (0, typeorm_1.Unique)(['isbn'])

@@ -14,7 +14,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Author = void 0;
 const typeorm_1 = require("typeorm");
-const book_entity_1 = __importDefault(require("../book/book.entity"));
+const book_entity_1 = __importDefault(require("../../book/entities/book.entity"));
 let Author = class Author {
     id;
     name;
@@ -34,7 +34,8 @@ __decorate([
     __metadata("design:type", Array)
 ], Author.prototype, "books", void 0);
 exports.Author = Author = __decorate([
-    (0, typeorm_1.Entity)()
+    (0, typeorm_1.Entity)(),
+    (0, typeorm_1.Unique)(['name'])
 ], Author);
 exports.default = Author;
 //# sourceMappingURL=author.entity.js.map

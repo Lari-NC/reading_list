@@ -6,7 +6,8 @@ import {
   Unique,
   JoinTable,
 } from 'typeorm';
-import Author from '../author/author.entity';
+import Author from '../../author/entities/author.entity';
+import { Genre } from '../../common/enums/genre.enum';
 
 @Entity()
 @Unique(['isbn'])
@@ -20,8 +21,7 @@ export class Book {
   @Column()
   pages: number;
 
-  @Column()
-  genre: string;
+  genre: Genre;
 
   @Column()
   cover: string;
@@ -36,10 +36,13 @@ export class Book {
   isbn: string;
 
   @ManyToMany(() => Author, (author) => author.books, {
-    eager: false, 
+    eager: false,
   })
   @JoinTable()
   authors: Author[];
+
+  @Column({ default: false })
+  isFavorite: boolean;
 }
 
 export default Book;

@@ -1,0 +1,18 @@
+export declare enum Genre {
+    Fantasy = "Fantasy",
+    ScienceFiction = "Science Fiction",
+    Mystery = "Mystery",
+    Romance = "Romance",
+    Thriller = "Thriller",
+    Horror = "Horror",
+    HistoricalFiction = "Historical Fiction",
+    NonFiction = "Non-Fiction",
+    Biography = "Biography",
+    Poetry = "Poetry",
+    Adventure = "Adventure",
+    Drama = "Drama",
+    Dystopian = "Dystopian",
+    Classic = "Classic",
+    YoungAdult = "Young Adult",
+    Children = "Children"
+}

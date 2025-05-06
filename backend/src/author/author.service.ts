@@ -1,5 +1,5 @@
 import { Inject, Injectable } from '@nestjs/common';
-import Author from './author.entity';
+import Author from './entities/author.entity';
 import { Repository } from 'typeorm';
 import { CreateAuthorDto } from './dto/create-author.dto';
 
@@ -19,5 +19,3 @@ export class AuthorService {
     return this.authorRepository.find();
   }
 }
-
-export default AuthorService;
