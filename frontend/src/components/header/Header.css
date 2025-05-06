@@ -1,0 +1,25 @@
+.container .title {
+  text-align: center;
+  color: #27c0c2;
+}
+
+.container .subtitle {
+  text-align: left;
+  font-style: italic;
+  color: #dd8061;
+}
+
+.container .search {
+  font-weight: 700;
+  color: #807167;
+}
+
+.container .search .search-input {
+  background-color: #fafafa;
+  margin-left: 4px;
+  border-radius: 4px;
+  border-color: #807167;
+  border-width: 2px;
+  border-style: solid;
+  color: #000000;
+}
