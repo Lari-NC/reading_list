@@ -35,7 +35,9 @@ export class Book {
   @Column()
   isbn: string;
 
-  @ManyToMany(() => Author, (author) => author.books)
+  @ManyToMany(() => Author, (author) => author.books, {
+    eager: false, 
+  })
   @JoinTable()
   authors: Author[];
 }

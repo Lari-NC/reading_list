@@ -1,6 +1,7 @@
-import { Injectable, Inject } from '@nestjs/common';
-import { Repository } from 'typeorm';
+import { Inject, Injectable } from '@nestjs/common';
 import Author from './author.entity';
+import { Repository } from 'typeorm';
+import { CreateAuthorDto } from './dto/create-author.dto';
 
 @Injectable()
 export class AuthorService {
@@ -8,6 +9,11 @@ export class AuthorService {
     @Inject('AUTHOR_REPOSITORY')
     private authorRepository: Repository<Author>,
   ) {}
+
+  async createAuthor(createAuthorDto: CreateAuthorDto) {
+    const author = this.authorRepository.create(createAuthorDto);
+    await this.authorRepository.save(author);
+  }
 
   async findAll(): Promise<Author[]> {
     return this.authorRepository.find();

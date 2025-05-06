@@ -15,7 +15,11 @@ export class BookService {
     await this.bookRepository.save(book);
   }
 
-  findAll(title?: string, author?: string, genre?: string): Promise<Book[]> {
+  async findAll(
+    title?: string,
+    author?: string,
+    genre?: string,
+  ): Promise<any[]> {
     const where = {};
 
     if (title) {
@@ -28,26 +32,34 @@ export class BookService {
       where['genre'] = Like(`%${genre}%`);
     }
 
-    return this.bookRepository.find({
-      where,
-      relations: ['authors'],
-    });
-    // return this.books.filter((book) => {
-    //   const matchesTitle = title
-    //     ? book.title.toLowerCase().includes(title.toLowerCase())
-    //     : true;
-
-    //   const matchesAuthor = author
-    //     ? book.authors.some((a) =>
-    //         a.name.toLowerCase().includes(author.toLowerCase()),
-    //       )
-    //     : true;
-
-    //   const matchesGenre = genre
-    //     ? book.genre.toLowerCase() === genre.toLowerCase()
-    //     : true;
-
-    //   return matchesTitle && matchesAuthor && matchesGenre;
+    // return this.bookRepository.find({
+    //   where,
+    //   relations: ['authors'],
     // });
+
+    const books = await this.bookRepository.find({
+      where,
+      relations: ['authors', 'authors.books'], 
+    });
+
+    return books.map((book) => {
+      const { id, authors, ...bookWithoutId } = book;
+
+      const authorsFormatted = authors.map((author) => {
+        const { id, books, ...authorWithoutId } = author;
+
+        const booksFormatted = books.map(({ id, ...b }) => b);
+
+        return {
+          ...authorWithoutId,
+          books: booksFormatted,
+        };
+      });
+
+      return {
+        ...bookWithoutId,
+        authors: authorsFormatted,
+      };
+    });
   }
 }

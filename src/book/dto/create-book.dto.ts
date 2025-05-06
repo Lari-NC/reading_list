@@ -1,7 +1,6 @@
 import Author from 'src/author/author.entity';
 
 export class CreateBookDto {
-  id: number;
 
   title: string;
 
