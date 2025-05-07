@@ -3,29 +3,21 @@ import starIcon from "../assets/starIcon.svg";
 import starIconFilled from "../assets/starIconFilled.svg";
 import { useState } from "react";
 
-const FavButton = ({ bookId }) => {
-  const [isLiked, setIsLiked] = useState(false);
-  const [book, setBook] = useState(null);
+const FavButton = ({ bookId, isFav }) => {
+  const [isLiked, setIsLiked] = useState(isFav);
 
   const toggleLiked = async () => {
     setIsLiked(!isLiked);
-
-    fetch(`http://localhost:3000/book/${bookId}`)
-      .then((res) => res.json())
-      .then((data) => setBook(data))
-      .catch((error) => console.error("Error fetching books:", error));
-
-    const updatedFavorite = !book.isFavorite;
 
     try {
       const response = await fetch(
         `http://localhost:3000/books/${bookId}/favorite`,
         {
-          method: "PATCH",
+          method: "PUT",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ isFavorite: updatedFavorite }),
+          body: JSON.stringify({ isFavorite: !isFav }),
         }
       );
 
@@ -33,8 +25,6 @@ const FavButton = ({ bookId }) => {
         throw new Error("Error al actualizar favorito");
       }
 
-      const updatedBook = await response.json();
-      setBook(updatedBook);
     } catch (error) {
       console.error("Error:", error);
     }

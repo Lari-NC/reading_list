@@ -11,7 +11,7 @@ exports.databaseProviders = [
                 host: 'localhost',
                 port: 3306,
                 username: 'root',
-                password: 'root',
+                password: '',
                 database: 'reading_list',
                 entities: [__dirname + '/../**/*.entity{.ts,.js}'],
                 synchronize: true,

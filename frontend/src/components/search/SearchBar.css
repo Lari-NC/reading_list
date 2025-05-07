@@ -7,7 +7,6 @@
   height: 40px;
 }
 
-/* search group */
 .group {
   display: flex;
   align-items: center;
@@ -54,7 +53,6 @@
   fill: #807167;
 }
 
-/* elegant radius */
 .radio-inputs {
   display: flex;
   padding: 2px;
@@ -101,7 +99,7 @@
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-/* max button */
+/* Botón principal */
 button {
   height: 40px;
   padding: 0 16px;
@@ -161,8 +159,7 @@ button:hover .arrow {
   transform: translateX(3px);
 }
 
-/* genres dropdown */
-.dropdown-books {
+.dropdown-genres {
   position: absolute;
   top: calc(100% + 4px);
   left: 0;
@@ -179,15 +176,15 @@ button:hover .arrow {
   scrollbar-color: #e5e7eb #ffffff;
 }
 
-.dropdown-especialidades::-webkit-scrollbar {
+.dropdown-genres::-webkit-scrollbar {
   width: 6px;
 }
 
-.dropdown-especialidades::-webkit-scrollbar-track {
+.dropdown-genres::-webkit-scrollbar-track {
   background: #ffffff;
 }
 
-.dropdown-especialidades::-webkit-scrollbar-thumb {
+.dropdown-genres::-webkit-scrollbar-thumb {
   background-color: #e5e7eb;
   border-radius: 6px;
 }
@@ -212,14 +209,8 @@ button:hover .arrow {
 
 /* Animaciones */
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* Responsive */
@@ -229,23 +220,22 @@ button:hover .arrow {
     height: auto;
     gap: 8px;
   }
-
+  
   .group {
     flex: 1 1 100%;
     order: 1;
   }
-
+  
   .radio-inputs {
     flex: 1;
     min-width: 0;
     order: 2;
   }
-
+  
   button {
     flex: 1;
     order: 3;
     justify-content: center;
-    background-color: #807167;
   }
 }
 
@@ -254,7 +244,7 @@ button:hover .arrow {
     padding: 0 8px;
     font-size: 12px;
   }
-
+  
   button {
     font-size: 13px;
     padding: 0 12px;

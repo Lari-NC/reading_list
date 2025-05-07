@@ -11,8 +11,6 @@ body {
   overflow-y: scroll;
   overflow-x: hidden;
   align-items: center;
-  display: flex;
-  flex-direction: column;
 }
 
 .Header {
@@ -20,7 +18,7 @@ body {
 }
 
 .content {
-  margin-top: 12px;
+  margin: 12px auto 0 auto;
   width: 1000px;
   max-width: 1000px;
   display: flex;

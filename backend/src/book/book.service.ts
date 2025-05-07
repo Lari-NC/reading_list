@@ -9,30 +9,12 @@ export class BookService {
   constructor(
     @Inject('BOOK_REPOSITORY')
     private bookRepository: Repository<Book>,
-    //
-    // @Inject('AUTHOR_REPOSITORY')
-    // private authorRepository: Repository<Author>,
-  ) {}
+  ) { }
 
   async createBook(createBookDto: CreateBookDto) {
     const book = this.bookRepository.create(createBookDto);
     await this.bookRepository.save(book);
   }
-
-  // async createBook(createBookDto: CreateBookDto) {
-  //   const authorNames = createBookDto.authors.map((a) => a.name);
-  //
-  //   const authors = await this.authorRepository.find({
-  //     where: authorNames.map((name) => ({ name })),
-  //   });
-  //
-  //   const book = this.bookRepository.create({
-  //     ...createBookDto,
-  //     authors,
-  //   });
-  //
-  //   await this.bookRepository.save(book);
-  // }
 
   async findAll(
     title?: string,
@@ -68,6 +50,6 @@ export class BookService {
   async updateFavorite(id: number, isFavorite: boolean) {
     const book = await this.bookRepository.findOneBy({ id });
     if (!book) throw new NotFoundException();
-    return this.bookRepository.update({ id }, { isFavorite: true });
+    return await this.bookRepository.update(id, { isFavorite });
   }
 }

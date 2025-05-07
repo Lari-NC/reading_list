@@ -15,6 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Book = void 0;
 const typeorm_1 = require("typeorm");
 const author_entity_1 = __importDefault(require("../../author/entities/author.entity"));
+const genre_enum_1 = require("../../common/enums/genre.enum");
 let Book = class Book {
     id;
     title;
@@ -40,6 +41,10 @@ __decorate([
     (0, typeorm_1.Column)(),
     __metadata("design:type", Number)
 ], Book.prototype, "pages", void 0);
+__decorate([
+    (0, typeorm_1.Column)(),
+    __metadata("design:type", String)
+], Book.prototype, "genre", void 0);
 __decorate([
     (0, typeorm_1.Column)(),
     __metadata("design:type", String)

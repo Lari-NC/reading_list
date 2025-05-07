@@ -51,7 +51,7 @@ let BookService = class BookService {
         const book = await this.bookRepository.findOneBy({ id });
         if (!book)
             throw new common_1.NotFoundException();
-        return this.bookRepository.update({ id }, { isFavorite: true });
+        return await this.bookRepository.update(id, { isFavorite });
     }
 };
 exports.BookService = BookService;

@@ -15,7 +15,7 @@ const Book = ({ book }) => {
         <div className="book">
             <div className="book-top">
                 <img src={book.cover} alt={`${book.title}`} />
-            <FavButton bookId={book.id} />
+            <FavButton bookId={book.id} isFav={book.isFavorite} />
             </div>
             <div className="horizontal-line"></div>
             <div className="book-bottom">
