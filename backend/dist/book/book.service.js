@@ -35,24 +35,9 @@ let BookService = class BookService {
         if (genre) {
             where['genre'] = (0, typeorm_1.Like)(`%${genre}%`);
         }
-        const books = await this.bookRepository.find({
+        return await this.bookRepository.find({
             where,
             relations: ['authors', 'authors.books'],
-        });
-        return books.map((book) => {
-            const { id, authors, ...bookWithoutId } = book;
-            const authorsFormatted = authors.map((author) => {
-                const { id, books, ...authorWithoutId } = author;
-                const booksFormatted = books.map(({ id, ...b }) => b);
-                return {
-                    ...authorWithoutId,
-                    books: booksFormatted,
-                };
-            });
-            return {
-                ...bookWithoutId,
-                authors: authorsFormatted,
-            };
         });
     }
     async findById(id) {
@@ -66,8 +51,7 @@ let BookService = class BookService {
         const book = await this.bookRepository.findOneBy({ id });
         if (!book)
             throw new common_1.NotFoundException();
-        book.isFavorite = isFavorite;
-        return this.bookRepository.save(book);
+        return this.bookRepository.update({ id }, { isFavorite: true });
     }
 };
 exports.BookService = BookService;

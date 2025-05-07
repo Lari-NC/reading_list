@@ -51,33 +51,11 @@ export class BookService {
       where['genre'] = Like(`%${genre}%`);
     }
 
-    const books = await this.bookRepository.find({
+    return await this.bookRepository.find({
       where,
       relations: ['authors', 'authors.books'],
     });
-
-    return books.map((book) => {
-      const { id, authors, ...bookWithoutId } = book;
-
-      const authorsFormatted = authors.map((author) => {
-        const { id, books, ...authorWithoutId } = author;
-
-        const booksFormatted = books.map(({ id, ...b }) => b);
-
-        return {
-          ...authorWithoutId,
-          books: booksFormatted,
-        };
-      });
-
-      return {
-        ...bookWithoutId,
-        authors: authorsFormatted,
-      };
-    });
   }
-
-  // book.service.ts
 
   async findById(id: number): Promise<Book> {
     const book = await this.bookRepository.findOne({ where: { id } });
@@ -90,7 +68,6 @@ export class BookService {
   async updateFavorite(id: number, isFavorite: boolean) {
     const book = await this.bookRepository.findOneBy({ id });
     if (!book) throw new NotFoundException();
-    book.isFavorite = isFavorite;
-    return this.bookRepository.save(book);
+    return this.bookRepository.update({ id }, { isFavorite: true });
   }
 }

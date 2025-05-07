@@ -7,5 +7,5 @@ export declare class BookService {
     createBook(createBookDto: CreateBookDto): Promise<void>;
     findAll(title?: string, author?: string, genre?: string): Promise<any[]>;
     findById(id: number): Promise<Book>;
-    updateFavorite(id: number, isFavorite: boolean): Promise<Book>;
+    updateFavorite(id: number, isFavorite: boolean): Promise<import("typeorm").UpdateResult>;
 }
