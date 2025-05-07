@@ -31,8 +31,8 @@ let BookController = class BookController {
     async findById(id) {
         return this.bookService.findById(id);
     }
-    getGenres() {
-        return Object.values(genre_enum_1.Genre);
+    async getGenres() {
+        return Object.values(genre_enum_1.Genre).filter((v) => typeof v === 'string');
     }
     updateFavorite(id, isFavorite) {
         return this.bookService.updateFavorite(id, isFavorite);
@@ -66,10 +66,10 @@ __decorate([
     (0, common_1.Get)('genres'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
-    __metadata("design:returntype", Array)
+    __metadata("design:returntype", Promise)
 ], BookController.prototype, "getGenres", null);
 __decorate([
-    (0, common_1.Patch)(':id/favorite'),
+    (0, common_1.Put)(':id/favorite'),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Body)('isFavorite')),
     __metadata("design:type", Function),
@@ -77,7 +77,7 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], BookController.prototype, "updateFavorite", null);
 exports.BookController = BookController = __decorate([
-    (0, common_1.Controller)('book'),
+    (0, common_1.Controller)('books'),
     __metadata("design:paramtypes", [book_service_1.BookService])
 ], BookController);
 //# sourceMappingURL=book.controller.js.map

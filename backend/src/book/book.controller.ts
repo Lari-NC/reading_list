@@ -3,19 +3,18 @@ import {
   Controller,
   Get,
   Param,
-  Patch,
   Post,
+  Put,
   Query,
 } from '@nestjs/common';
 import { BookService } from './book.service';
-// import { Book } from './interfaces/book.interface';
 import { CreateBookDto } from './dto/create-book.dto';
 import { Genre } from '../common/enums/genre.enum';
 import Book from './entities/book.entity';
 
-@Controller('book')
+@Controller('books')
 export class BookController {
-  constructor(private bookService: BookService) {}
+  constructor(private bookService: BookService) { }
 
   @Post()
   create(@Body() createBookDto: CreateBookDto) {
@@ -37,11 +36,11 @@ export class BookController {
   }
 
   @Get('genres')
-  getGenres(): string[] {
-    return Object.values(Genre);
+  async getGenres(): Promise<string[]> {
+    return Object.values(Genre).filter((v) => typeof v === 'string') as string[];
   }
 
-  @Patch(':id/favorite')
+  @Put(':id/favorite')
   updateFavorite(
     @Param('id') id: number,
     @Body('isFavorite') isFavorite: boolean,

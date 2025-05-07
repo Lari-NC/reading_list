@@ -21,6 +21,7 @@ export class Book {
   @Column()
   pages: number;
 
+  @Column()
   genre: Genre;
 
   @Column()
