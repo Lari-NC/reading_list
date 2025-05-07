@@ -2,14 +2,13 @@ import { Inject, Injectable, NotFoundException } from '@nestjs/common';
 import Book from './entities/book.entity';
 import { Like, Repository } from 'typeorm';
 import { CreateBookDto } from './dto/create-book.dto';
-// import Author from '../author/entities/author.entity';
 
 @Injectable()
 export class BookService {
   constructor(
     @Inject('BOOK_REPOSITORY')
     private bookRepository: Repository<Book>,
-  ) { }
+  ) {}
 
   async createBook(createBookDto: CreateBookDto) {
     const book = this.bookRepository.create(createBookDto);
@@ -40,7 +39,7 @@ export class BookService {
   }
 
   async findById(id: number): Promise<Book> {
-    const book = await this.bookRepository.findOne({ where: { id } });
+    const book = await this.bookRepository.findOne({ where: { id }, relations: ['authors'] });
     if (!book) {
       throw new NotFoundException(`Libro con id ${id} no encontrado`);
     }

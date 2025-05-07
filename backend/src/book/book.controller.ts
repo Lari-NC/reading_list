@@ -31,7 +31,7 @@ export class BookController {
   }
 
   @Get(':id')
-  async findById(@Query('id') id: number): Promise<Book> {
+  async findById(@Param('id') id: number,): Promise<Book> {
     return this.bookService.findById(id);
   }
 

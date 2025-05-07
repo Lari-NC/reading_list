@@ -41,7 +41,7 @@ let BookService = class BookService {
         });
     }
     async findById(id) {
-        const book = await this.bookRepository.findOne({ where: { id } });
+        const book = await this.bookRepository.findOne({ where: { id }, relations: ['authors'] });
         if (!book) {
             throw new common_1.NotFoundException(`Libro con id ${id} no encontrado`);
         }

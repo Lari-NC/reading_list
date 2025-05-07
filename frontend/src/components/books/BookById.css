@@ -1,0 +1,91 @@
+.book-by-id {
+    max-width: 1000vh;
+    gap: 16px; 
+    display: flex;
+    flex-direction: column;
+}
+
+.book-by-id .book-horizontal {
+    width: 100%; 
+    justify-content: center;
+    display: flex;
+    align-items: flex-start;
+    gap: 32px; 
+    padding: 32px 0; 
+}
+
+.info {
+    width: 384px;
+    padding: 24px 16px;
+    gap: 12px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-start;
+    position: relative;
+    margin: 0; 
+    background-color: #FFFFFF;
+}
+
+.book-by-id .book-photo img {
+    margin: 0;
+    max-height: 405px;
+    border-radius: 10px;
+}
+
+.book-by-id .info .info-title {
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 18px;
+    margin: 0; 
+    text-align: left;
+    color: #DD8061;
+    font-weight: 500;
+    line-height: 1.2;
+    word-wrap: break-word;
+    width: 100%;
+}
+
+.book-by-id .info .info-author {
+    margin-top: 12px; 
+    color : #000000;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 18px;
+    text-align: left; 
+}
+
+.book-by-id .info .extra-info .info-year {
+    font-size: 16px;
+    font-weight: 500;
+    color: #807167;
+    line-height: 18px;
+    text-align: left;
+}
+
+.book-by-id .info .extra-info .info-genre {
+    font-size: 14px;
+    font-weight: 500;
+    color:#27c0c2;
+    line-height: 18px;
+    text-align: left;
+    margin-top: 12px;
+}
+
+.isbn {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 18px;
+    text-align: left;
+    color: #DEDFD0;
+}
+
+.synopsis {
+    margin-top: 16px;
+    font-style: oblique;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 18px;
+    text-align: left;
+    color: #000000E5;
+}

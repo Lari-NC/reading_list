@@ -28,3 +28,14 @@
     line-height: 18px;
     text-align: left; 
 }
+
+
+.SimpleDataBook .book-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.SimpleDataBook .book-link :hover {
+    text-decoration: none;
+    color: #807167;
+}

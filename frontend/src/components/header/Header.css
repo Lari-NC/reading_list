@@ -54,3 +54,13 @@
     margin: 12px 0 8px;
   }
 }
+
+.header .logo-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.header .logo-link :hover {
+  text-decoration: none;
+  color: #2AABAC;
+}

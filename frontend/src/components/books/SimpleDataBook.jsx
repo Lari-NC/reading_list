@@ -1,3 +1,4 @@
+import { Link } from 'react-router';
 import './SimpleDataBook.css';
 
 const SimpleDataBook = ({ book }) => {
@@ -5,8 +6,10 @@ const SimpleDataBook = ({ book }) => {
 
     return (
         <div className="SimpleDataBook">
-            <p className="bookTitle">{book.title}</p>
-            <p className="author">Authors: {authorNames}</p>
+            <Link className="book-link" key={book.id} to={`/books/${book.id}`}>
+                <p className="bookTitle">{book.title}</p>
+            </Link>
+            <p className="author">{authorNames}</p>
         </div>
     );
 };
